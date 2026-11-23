@@ -1,8 +1,0 @@
-".\Objects\main.obj",
-".\Objects\SEG.obj",
-".\Objects\Init.obj",
-".\Objects\Timer1.obj",
-".\Objects\OneWire.obj",
-".\Objects\DS18B20.obj" 
-TO ".\Objects\DS18B20ÎÂ¶È" 
-PRINT(".\Listings\DS18B20ÎÂ¶È.m51") RAMSIZE(256) 

@@ -1,8 +1,0 @@
-".\Objects\Init.obj",
-".\Objects\Key.obj",
-".\Objects\main.obj",
-".\Objects\Nixie.obj",
-".\Objects\System_Init().obj",
-".\Objects\Timer1.obj" 
-TO ".\Objects\独立按键" 
-PRINT(".\Listings\独立按键.m51") RAMSIZE(256) 
