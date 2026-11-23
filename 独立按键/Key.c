@@ -30,11 +30,32 @@ unsigned char Key_GetState()
 /*在定时器里定时调用，读取到下降沿则将KeyNum赋值*/
 void Key_loop()
 {
+	static unsigned char wait_release;
+	static unsigned char flag;
 	static unsigned char Key_Now,Key_Last;
 	Key_Last=Key_Now;			//Key_Last读取旧值
 	Key_Now=Key_GetState();		//Key_Now得到最新的按键状态
 	
-	/*下降沿触发赋值*/
+	if(wait_release)
+	{
+		if(KeyNum==0)
+		wait_release=0;
+		return;
+	}
+	
+	if(flag)
+	{
+		flag=0;
+		if(Key_Now!=0&&Key_Last!=0&&Key_Now==Key_Last)
+		{
+			KeyNum=Key_Now;
+			wait_release=1;
+		}
+		return;
+	}
+	
 	if(Key_Now!=0&&Key_Last==0)
-	KeyNum=Key_Now;
+	{
+		flag=1;
+	}
 }

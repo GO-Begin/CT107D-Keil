@@ -1,0 +1,103 @@
+C51 COMPILER V9.54   MAIN                                                                  11/23/2026 22:34:36 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\Keil5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main.l
+                    -st) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <STC15F2K60S2.H>
+   2          #include "SEG.h"
+   3          #include "Timer1.h"
+   4          #include "Init.h"
+   5          #include "Key.h"
+   6          
+   7          #define S4 P33
+   8          #define S5 P32
+   9          #define S6 P31
+  10          #define S7 P30
+  11          
+  12          /*变量声明区*/
+  13          unsigned char SEG_Num[]={'#',0,10,10,10,10,10,10,10};
+  14          unsigned char i;
+  15          unsigned char T1cnt;
+  16          unsigned char current_key;
+  17          
+  18          /*结构体变量声明*/
+  19          Key_t key1={KEY_IDLE,0,4};
+  20          Key_t key2={KEY_IDLE,0,5};
+  21          Key_t key3={KEY_IDLE,0,6};
+  22          Key_t key4={KEY_IDLE,0,7};
+  23          
+  24          void main()
+  25          {
+  26   1              /*初始化*/
+  27   1              System_Init();
+  28   1              Timer1_Init();
+  29   1              
+  30   1              while(1)
+  31   1              {
+  32   2                      current_key=0;
+  33   2                      
+  34   2                      /*有按键按下时*/
+  35   2                      if(Key_Event!=0)
+  36   2                      {
+  37   3                              current_key=Key_Event;
+  38   3                              Key_Event=0;
+  39   3                      }
+  40   2                      
+  41   2                      /*根据读取键值进行对应操作*/
+  42   2                      if(current_key==4)
+  43   2                  SEG_Num[1]++;
+  44   2                      else if(current_key==5)
+  45   2                      SEG_Num[1]--;
+  46   2              }
+  47   1      }
+  48          
+  49          /*数码管处理函数*/
+  50          void SEG_Process()
+  51          {
+  52   1              if(++i>8)i=1;
+  53   1              
+  54   1              /*小数点处理*/
+C51 COMPILER V9.54   MAIN                                                                  11/23/2026 22:34:36 PAGE 2   
+
+  55   1              if(SEG_Num[i]>='.')
+  56   1              SEG_Show(i,SEG_Num[i]-'.',1);
+  57   1              else
+  58   1              SEG_Show(i,SEG_Num[i],0);
+  59   1      }
+  60          
+  61          /*定时器1中断函数*/
+  62          void Timer1_Routine() interrupt 3
+  63          {
+  64   1              /*每10ms进行一次全体独立按键扫描*/
+  65   1              T1cnt++;
+  66   1              if(T1cnt>=10)
+  67   1              {
+  68   2                      T1cnt=0;
+  69   2                      Key_Scan_StateMachine(&key1,S4);
+  70   2                      Key_Scan_StateMachine(&key2,S5);
+  71   2                      Key_Scan_StateMachine(&key3,S6);
+  72   2                      Key_Scan_StateMachine(&key4,S7);
+  73   2              }
+  74   1              
+  75   1              /*数码管扫描*/
+  76   1              SEG_Process();
+  77   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    210    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     24    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -50,7 +50,7 @@ void Timer1_Routine() interrupt 3
 	
 	/*设置调用Key_loop的频率*/
 	T1cnt++;
-	if(T1cnt>=20) 	//15毫秒调用一次Key_loop检测键值
+	if(T1cnt>=15) 	//15毫秒调用一次Key_loop检测键值
 	{
 		T1cnt=0;	//T1计数器清零，用于下一次计数
 		Key_loop();

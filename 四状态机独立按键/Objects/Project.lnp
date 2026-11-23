@@ -1,0 +1,7 @@
+".\Objects\main.obj",
+".\Objects\Init.obj",
+".\Objects\SEG.obj",
+".\Objects\Timer1.obj",
+".\Objects\Key.obj" 
+TO ".\Objects\Project" 
+PRINT(".\Listings\Project.m51") RAMSIZE(256) 

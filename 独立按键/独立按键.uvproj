@@ -10,6 +10,7 @@
       <TargetName>Target 1</TargetName>
       <ToolsetNumber>0x0</ToolsetNumber>
       <ToolsetName>MCS-51</ToolsetName>
+      <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>STC15F2K60S2</Device>
@@ -364,9 +365,14 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>main.c</FileName>
+              <FileName>Init.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\main.c</FilePath>
+              <FilePath>.\Init.c</FilePath>
+            </File>
+            <File>
+              <FileName>Init.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Init.h</FilePath>
             </File>
             <File>
               <FileName>Key.c</FileName>
@@ -374,9 +380,14 @@
               <FilePath>.\Key.c</FilePath>
             </File>
             <File>
-              <FileName>Timer1.c</FileName>
+              <FileName>Key.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Key.h</FilePath>
+            </File>
+            <File>
+              <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Timer1.c</FilePath>
+              <FilePath>.\main.c</FilePath>
             </File>
             <File>
               <FileName>Nixie.c</FileName>
@@ -384,9 +395,24 @@
               <FilePath>.\Nixie.c</FilePath>
             </File>
             <File>
-              <FileName>Init.c</FileName>
+              <FileName>Nixie.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Nixie.h</FilePath>
+            </File>
+            <File>
+              <FileName>System_Init().c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Init.c</FilePath>
+              <FilePath>.\System_Init().c</FilePath>
+            </File>
+            <File>
+              <FileName>Timer1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Timer1.c</FilePath>
+            </File>
+            <File>
+              <FileName>Timer1.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Timer1.h</FilePath>
             </File>
           </Files>
         </Group>
