@@ -1,0 +1,7 @@
+#ifndef __iic_H__
+#define __iic_H__
+
+unsigned char AD_Read(Address);
+void DA_Write(dat);
+
+#endif

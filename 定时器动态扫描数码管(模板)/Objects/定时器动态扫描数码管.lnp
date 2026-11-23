@@ -1,0 +1,6 @@
+".\Objects\main.obj",
+".\Objects\Nixie.obj",
+".\Objects\Init.obj",
+".\Objects\Timer1.obj" 
+TO ".\Objects\定时器动态扫描数码管" 
+PRINT(".\Listings\定时器动态扫描数码管.m51") RAMSIZE(256) 

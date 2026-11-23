@@ -1,0 +1,19 @@
+#include <STC15F2K60S2.H>
+
+/*打开蜂鸣器和LED*/
+void BEEP_ON()
+{
+	P2=P2&0x1F|0xA0;
+	P0=0x40;
+	P2=P2&0x1F|0x80;
+	P0=0x00;
+}
+
+/*关闭蜂鸣器和LED*/
+void BEEP_OFF()
+{
+	P2=P2&0x1F|0xA0;
+	P0=0x00;
+	P2=P2&0x1F|0x80;
+	P0=0xFF;
+}

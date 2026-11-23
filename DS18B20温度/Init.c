@@ -1,0 +1,20 @@
+#include <STC15F2K60S2.H>
+
+void System_Init()
+{
+	/*LED初始化*/
+	P2=P2&0x1F|0x80;
+	P0=0xFF;
+	
+	/*蜂鸣器初始化*/
+	P2=P2&0x1F|0xA0;
+	P0=0x00;
+	
+	/*数码管位选初始化*/
+	P2=P2&0x1F|0xC0;
+	P0=0x00;
+	
+	/*数码管段选初始化*/
+	P2=P2&0x1F|0xE0;
+	P0=0xFF;
+}

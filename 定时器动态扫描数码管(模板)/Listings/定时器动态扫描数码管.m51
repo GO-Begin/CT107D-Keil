@@ -1,0 +1,234 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/01/2026  10:11:59  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\C51\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\Nixie.obj, .\Objects\Init.obj, .\Objects\Timer1.obj TO .\Objects\¶
+>> ¨Ê±Æ÷¶¯Ì¬É¨ÃèÊýÂë¹Ü PRINT (.\Listings\¶¨Ê±Æ÷¶¯Ì¬É¨ÃèÊýÂë¹Ü.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  .\Objects\Nixie.obj (NIXIE)
+  .\Objects\Init.obj (INIT)
+  .\Objects\Timer1.obj (TIMER1)
+  D:\C51\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\C51\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\¶¨Ê±Æ÷¶¯Ì¬É¨ÃèÊýÂë¹Ü (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000AH     UNIT         ?DT?MAIN
+            IDATA   0012H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0015H     UNIT         ?PR?INIT?INIT
+                    0018H     0003H                  *** GAP ***
+            CODE    001BH     0003H     ABSOLUTE     
+            CODE    001EH     008CH     UNIT         ?C_C51STARTUP
+            CODE    00AAH     0064H     UNIT         ?PR?TIMER1_ROUTINE?MAIN
+            CODE    010EH     0040H     UNIT         ?PR?_NIXIE?NIXIE
+            CODE    014EH     0015H     UNIT         ?PR?TIMER1INIT?TIMER1
+            CODE    0163H     000EH     UNIT         ?PR?MAIN?MAIN
+            CODE    0171H     000CH     UNIT         ?C_INITSEG
+            CODE    017DH     000CH     UNIT         ?CO?NIXIE
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\¶¨Ê±Æ÷¶¯Ì¬É¨ÃèÊýÂë¹Ü (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?PR?TIMER1_ROUTINE?MAIN
+  +--> ?PR?_NIXIE?NIXIE
+
+?PR?_NIXIE?NIXIE
+  +--> ?CO?NIXIE
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/01/2026  10:11:59  PAGE 2
+
+
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN
+  +--> ?PR?INIT?INIT
+  +--> ?PR?TIMER1INIT?TIMER1
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\¶¨Ê±Æ÷¶¯Ì¬É¨ÃèÊýÂë¹Ü (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  C:00AAH         PUBLIC        Timer1_Routine
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00C0H         PUBLIC        P4
+  D:00C8H         PUBLIC        P5
+  D:00E8H         PUBLIC        P6
+  D:00F8H         PUBLIC        P7
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:00D8H         PUBLIC        CCON
+  C:0163H         PUBLIC        main
+  D:0008H         PUBLIC        Nixie_num
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  B:00B0H.3       PUBLIC        P33
+  D:0011H         PUBLIC        i
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:0163H         LINE#         9
+  C:0163H         LINE#         10
+  C:0163H         LINE#         11
+  C:0166H         LINE#         12
+  C:0169H         LINE#         13
+  C:0169H         LINE#         14
+  C:0169H         LINE#         15
+  C:016CH         LINE#         16
+  C:016FH         LINE#         17
+  -------         ENDPROC       MAIN
+  -------         PROC          TIMER1_ROUTINE
+  C:00AAH         LINE#         20
+  C:00C7H         LINE#         22
+  C:00C9H         LINE#         23
+  C:00D1H         LINE#         24
+  C:00DDH         LINE#         25
+  C:00E5H         LINE#         27
+  C:00F3H         LINE#         28
+  -------         ENDPROC       TIMER1_ROUTINE
+  -------         ENDMOD        MAIN
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/01/2026  10:11:59  PAGE 3
+
+
+  -------         MODULE        NIXIE
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:010EH         PUBLIC        _Nixie
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00C0H         PUBLIC        P4
+  D:00C8H         PUBLIC        P5
+  D:00E8H         PUBLIC        P6
+  D:00F8H         PUBLIC        P7
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:00D8H         PUBLIC        CCON
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:017DH         PUBLIC        Nixie_table
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _NIXIE
+  D:0007H         SYMBOL        Column
+  D:0005H         SYMBOL        Num
+  D:0003H         SYMBOL        point
+  C:010EH         LINE#         5
+  C:010EH         LINE#         6
+  C:010EH         LINE#         7
+  C:0116H         LINE#         8
+  C:0119H         LINE#         10
+  C:0121H         LINE#         11
+  C:0131H         LINE#         13
+  C:0139H         LINE#         14
+  C:013CH         LINE#         15
+  C:0146H         LINE#         17
+  C:014DH         LINE#         18
+  -------         ENDPROC       _NIXIE
+  -------         ENDMOD        NIXIE
+
+  -------         MODULE        INIT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00C0H         PUBLIC        P4
+  D:00C8H         PUBLIC        P5
+  D:00E8H         PUBLIC        P6
+  D:00F8H         PUBLIC        P7
+  D:00A8H         PUBLIC        IE
+  C:0003H         PUBLIC        Init
+  D:00B8H         PUBLIC        IP
+  D:00D8H         PUBLIC        CCON
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          INIT
+  C:0003H         LINE#         3
+  C:0003H         LINE#         4
+  C:0003H         LINE#         5
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/01/2026  10:11:59  PAGE 4
+
+
+  C:000BH         LINE#         6
+  C:000EH         LINE#         7
+  C:0011H         LINE#         8
+  C:0014H         LINE#         9
+  C:0017H         LINE#         10
+  -------         ENDPROC       INIT
+  -------         ENDMOD        INIT
+
+  -------         MODULE        TIMER1
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00C0H         PUBLIC        P4
+  D:00C8H         PUBLIC        P5
+  B:00A8H.7       PUBLIC        EA
+  D:00E8H         PUBLIC        P6
+  D:00F8H         PUBLIC        P7
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:00D8H         PUBLIC        CCON
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  D:008EH         PUBLIC        AUXR
+  B:00A8H.3       PUBLIC        ET1
+  B:0088H.7       PUBLIC        TF1
+  C:014EH         PUBLIC        Timer1Init
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          TIMER1INIT
+  C:014EH         LINE#         3
+  C:014EH         LINE#         4
+  C:014EH         LINE#         5
+  C:0151H         LINE#         6
+  C:0154H         LINE#         7
+  C:0157H         LINE#         8
+  C:015AH         LINE#         9
+  C:015CH         LINE#         10
+  C:015EH         LINE#         11
+  C:0160H         LINE#         12
+  C:0162H         LINE#         13
+  -------         ENDPROC       TIMER1INIT
+  -------         ENDMOD        TIMER1
+
+Program Size: data=19.0 xdata=0 code=390
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

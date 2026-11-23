@@ -1,0 +1,35 @@
+C51 COMPILER V9.54   LED                                                                   11/03/2026 16:03:43 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE LED
+OBJECT MODULE PLACED IN .\Objects\LED.obj
+COMPILER INVOKED BY: D:\c51\C51\BIN\C51.EXE LED.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\LED.lst) 
+                    -OBJECT(.\Objects\LED.obj)
+
+line level    source
+
+   1          #include <STC15F2K60S2.H>
+   2          
+   3          void LED(unsigned char* led)
+   4          {
+   5   1              unsigned char Temp;
+   6   1              Temp=led[0]<<0|led[1]<<1|led[2]<<2|led[3]<<3|led[4]<<4|led[5]<<5|led[6]<<6|led[7]<<7;
+   7   1              
+   8   1              P0=~Temp;
+   9   1              P2=P2&0x1F|0x80;
+  10   1              P2&=0x1F;
+  11   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    103    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
